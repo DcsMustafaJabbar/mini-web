@@ -5,25 +5,25 @@ import {EventEmitter} from '@angular/core';
     selector:'my-info',
     templateUrl :'./app-info.component.html',
     styleUrls:['./app-info.component.css'],
-    inputs:['childAge']
+    inputs:['name','age'],
+    outputs:['childEvent']
 })
 
 export class AppinfoComponent{
 
     // (childEvent)="messageFromChild($event)"
-    @Output() 
+   // @Output() 
     childEvent= new EventEmitter<string>();
-
-    // [childAge]="outerAge"
-   // @Input()
-    childAge: string;
+    name: string;
+    age:any;
     
     constructor(){        
-        this.childAge= "";
+        this.name= "";
+        this.age="";
     }
 
-    sendtoapp(event: string){
-       this.childEvent.emit(event);
+    sendtoapp(value: string){
+       this.childEvent.emit(value);
      }        
 }
 

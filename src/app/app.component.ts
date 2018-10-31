@@ -6,13 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name : any;
-  outerAge:number;
-  childdata:string="";
+ // name : string;
+ // childdata:string="";
 
 
-  constructor(){
-    this.name="Hallo",
+  constructor(){}}
+    /*this.name="Name",
     this.outerAge=28
   }
 
@@ -28,6 +27,5 @@ export class AppComponent {
     messageFromChild(event) {
       console.log('messageFromChild', event);
       this.outerAge = event;
-    }
+    } */
 
-}
