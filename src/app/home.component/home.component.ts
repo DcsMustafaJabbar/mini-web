@@ -4,26 +4,57 @@ import { Component } from '@angular/core';
     selector:'my-home',
     templateUrl :'./home.component.html',
     styleUrls:['./home.component.css'],
-  
+    
+} )
+export class homeComponent {
+    userData: any;
+    constructor() { 
+        this.userData = {
+            name: "Mustafa J",
+            Email: "bb@bb.com",
+            Street: "Am kellerberg",
+            City: "Furth",
+            PostalCode:"90776"
+        };
+    }
+
+    setSubmit(value: any) {
+        console.log(value);
+    }
+}
+
+
+
+
+/*import { Component, OnInit } from '@angular/core';
+//import { Homeservice } from '../service/home.service';
+
+@Component ({
+    selector:'my-home',
+    templateUrl :'./home.component.html',
+    styleUrls:['./home.component.css'],
+    //providers: [Homeservice]
 })
 
 export class homeComponent{
+  /*  blogs: any = [];
 
-userData:any
-    
-    constructor(){  
-        this.userData={
-            name:"username",
-            Email:"bb@bb.com",
-            Class_work :0.1,
-            Lab_work :0.1
+    constructor(private _lastBlogs: Homeservice) {
 
-        };      
-       
     }
-    setSubmit(value:any){
-        console.log(value);
+
+    ngOnInit() {
+
+        this._lastBlogs.getLasetBlogs().subscribe(
+          data => {
+              for(var i=0; i<9; i++) {
+                  this.blogs.push(data[i]);
+              }
+              
+          }
+        );
+
     }
-    
-}
+
+}*/
 

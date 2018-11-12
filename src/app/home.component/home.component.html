@@ -1,56 +1,109 @@
-<h1 id="title1"> Login:</h1>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 id="title1"> Login:</h1>
     
-    <hr/> <div class="row">
-<form novalidate
- #studentForm="ngForm" (ngSubmit)="setSubmit(studentForm.value)">
-<div class="from-group">
-<label> Student Name:</label>
-<br/>
-<input [(ngModel)]="userData.name"
-required minlength="8"
-type="text" #nameinput="ngModel"  name="name" class="col-8"/>
-<div *ngIf="nameinput.errors && (nameinput.dirty || nameinput.touched)" class="alert">
-    <h4 [hidden]="!nameinput.errors.required" >Name is required</h4>
-    <h4 [hidden]="!nameinput.errors.minlength">Name must be more then 8 chars</h4>
-</div>
-</div>
-<br/>
-<div class="from-group">
-<label> Email:</label>
-<br/>
-<input pattern= '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
-required
-type="text" #userEmail="ngModel" [(ngModel)]="userData.Email" name="email" class="col-8"/>
-<div *ngIf="userEmail.errors && (userEmail.dirty || userEmail.touched)" class="alert-Email">
-    <h4 [hidden]="!userEmail.errors.required" >Email is required</h4>
-    <h4 [hidden]="!userEmail.errors.pattern">Please Enter Valid Email</h4>
-</div>
-</div>
-<br/>
-<div ngModelGroup="cour-work">
-<div class="from-group">
-<label> Class Work:</label>
-<br/>
-<input type="text" [(ngModel)]="userData.Class_work" name="class work" class="col-8"/>
-</div>
-<br/>
-<div class="from-group">
-<label> Lab Work:</label>
-<br/>
-<input type="text" [(ngModel)]="userData.Lab_work" name="lab work" class="col-8"/>
-</div>
-</div>
-<br/>
-<hr/>
-<div class="from-group">
-<input [disabled]="!studentForm.form.valid" 
-type="submit"  name="submit" class="form-control" value="OK"/>
-</div>
-</form> <div>
-<h1 class="title1">UserData</h1>
-<h3>Username: {{userData.name}}</h3>
-<h3>Email: {{userData.Email}}</h3>
-<h3>Class_work: {{userData.Class_work}}</h3>
-<h3>Lab_work: {{userData.Lab_work}}</h3>
-</div></div>  
+        <hr/> <div class="row">
+    <form novalidate
+     #studentForm="ngForm" (ngSubmit)="setSubmit(studentForm.value)">
+    <div class="from-group">
+    <label> Student Name</label>
+    <br/>
+    <input [(ngModel)]="userData.name"
+    required minlength="6"
+    type="text" #nameinput="ngModel"  name="name" class="form-control"/>
+    <div *ngIf="nameinput.errors && (nameinput.dirty || nameinput.touched)" class="alert">
+        <h4 [hidden]="!nameinput.errors.required" class="alert alert-danger error" >Please enter a name</h4>
+        <h4 [hidden]="!nameinput.errors.minlength" class="alert alert-danger error">Name must be more then 8 chars</h4>
+    </div>
+    </div>
+    <br/>
+    <div class="from-group">
+    <label> Email</label>
+    <br/>
+    <input pattern= '^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+    required minlength="6"
+    type="text" #userEmail="ngModel" [(ngModel)]="userData.Email" name="email" class="form-control"/>
+    <div *ngIf="userEmail.errors && (userEmail.dirty || userEmail.touched)" class="alert-Email">
+        <h4 [hidden]="!userEmail.errors.required" class="alert alert-danger error">Please enter a email </h4>
+        <h4 [hidden]="!userEmail.errors.pattern" class="alert alert-danger error">Please enter valid email</h4>
+        <h4 [hidden]="!nameinput.errors.minlength" class="alert alert-danger error">Email must be more then 6 chars</h4>
+    </div>
+    </div>
+    <br/>
+    <div ngModelGroup="address">
+    <div class="from-group">
+    <label>Street </label>
+    <br/>
+    <input type="text" [(ngModel)]="userData.Street" name="Street" class="form-control"/>
+    </div>
+    <br/>
+    <div class="from-group">
+    <label> City</label>
+    <br/>
+    <input type="text" [(ngModel)]="userData.City" name="City" class="form-control"/>
+    </div>
+    <div class="from-group">
+            <br/>
+        <label> PostalCode</label>
+        <br/>
+        <input type="text"#PostalCode="ngModel"
+         required   pattern="^[0-9][0-9]{4}$"
+         [(ngModel)]="userData.PostalCode" name="PostalCode" class="form-control"/>
+       <div *ngIf="PostalCode.errors &&(PostalCode.dirty || PostalCode.touched)" class="alert-Email">
+        <h4 [hidden]="!PostalCode.errors.required" class="alert alert-danger error">Please enter a postalcode </h4>
+        <h4 [hidden]="!PostalCode.errors.pattern" class="alert alert-danger error">Please enter a five digit number </h4>
+    </div>
+    </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class="from-group">
+    <button [disabled]="!studentForm.form.valid" 
+    type="submit"  name="submit" class="btn btn-primary ok">OK</button>
+    </div>
+    </form> 
+      </div>
+    </div>
+
+    <div class="col">
+        <div>
+            <h1 class="title1">UserData</h1>
+            <hr/>
+            <h5>Username: {{userData.name}}</h5>
+            <br/>
+            <h5>Email : {{userData.Email}}</h5>
+            <br/>
+            <h5>Street: {{userData.Street}}</h5>
+            <br/>
+            <h5>City: {{userData.City}}</h5>
+            <br/>
+            <h5>PostalCode: {{userData.PostalCode}}</h5>
+            </div> 
+            
+      </div>
+    </div>
+    
+
+
+
+
+
+    <!--<div class="jumbotron">
+            <h1>Welcome To DevDose</h1>
+            <p>This is a demo blog :)</p>
+          </div>
+    
+          <div class="row">
+    
+            <div *ngFor="let blog of blogs" class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                <img src="{{blog.thumbnailUrl}}" alt="{{blog.title}}">
+                <div class="caption">
+                    <h3>{{blog.title}}</h3>
+                    <p><a [routerLink]='["/blog", blog.id]' class="btn btn-primary" role="button">More</a> </p>
+                </div>
+                </div>
+            </div>
+        </div>-->
     

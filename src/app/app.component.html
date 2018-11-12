@@ -25,7 +25,27 @@
 (childEvent)="childdata=$event">
     loading...
 </my-info> -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>DevDose</title>
+
+
+  
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar navbar-expand-sm navbar-expand-md navbar-expand-xl navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Home Page</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -42,9 +62,6 @@
             <li class="nav-item">
               <a class="nav-link" [routerLink]='["/about"]' >About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -52,7 +69,22 @@
           </form>
         </div>
       </nav>
-
+        
 <div class="row-2">
   <router-outlet></router-outlet>
 </div>
+
+    <!-- Footer -->
+    <hr />
+    <footer class="panel panel-default">
+        <div class="panel-body text-center">
+            &copy; DevDose.com
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+  </body>
+</html>

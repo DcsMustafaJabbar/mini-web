@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppinfoComponent } from './appinfo/app-info.component';
@@ -13,7 +14,7 @@ import{routers} from  './app.routing'
     AppComponent, AppinfoComponent,homeComponent,aboutComponent,coursComponent,singlecoursComponent
   ],
   imports: [
-    FormsModule,BrowserModule,routers
+    FormsModule,BrowserModule,routers,HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
