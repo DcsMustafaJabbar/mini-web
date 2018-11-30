@@ -1,0 +1,10 @@
+<h1>Wettervorhersage</h1>
+
+{{forecasts.length}}
+
+
+    <ul>
+        <li *ngFor="let forecast of forecasts">
+            {{forecast.date}}: {{forecast.low}} - {{forecast.high}} 
+        </li>
+   </ul>
